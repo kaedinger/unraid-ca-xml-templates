@@ -4,14 +4,14 @@
   <PluginURL>https://raw.githubusercontent.com/kaedinger/unspin/main/unspin.plg</PluginURL>
   <PluginAuthor>kaedinger</PluginAuthor>
   <Beta>False</Beta>
-  <Category>Tools:System Productivity:Utilities</Category>
+  <Category>Tools:System</Category>   
   <Name>Unspin</Name>
   <Description>
     Rudimentary hotfile tiering for Unraid. Watches file accesses via fanotify and promotes hot files to fast storage (cache/NVMe). There's no explicit cold demotion - for now we rely on Unraid's mover. Fully configurable via the Utilities settings page.
   </Description>
   <Support>https://forums.unraid.net/topic/198091-plugin-unspin-rudimentary-hot-file-tiering-for-unraid/</Support>
   <Icon>https://raw.githubusercontent.com/kaedinger/unspin/main/images/icon.png</Icon>
-  
+  <ExtraSearchTerms>hotfile tiering</ExtraSearchTerms>
   <CA>AddOn</CA>
   <Repo>https://github.com/kaedinger/unspin</Repo>
   <MinVer>7.0.0</MinVer>
