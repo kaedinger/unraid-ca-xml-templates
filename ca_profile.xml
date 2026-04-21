@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Maintainer>
+    <Icon>https://raw.githubusercontent.com/kaedinger/unraid-ca-xml-templates/main/ca_profile.png</Icon>
+    <Profile>Software architect of 35 years, now audio engineer, but still creating/maintaining own software products as well as open source.</Profile>
+    <DonateLink>https://www.paypal.me/kaedinger</DonateLink>
+    <DonateText>If you appreciate my work please consider donating.</DonateText>
+    <WebPage>https://kaedinger.de</WebPage>
+    <Photo>https://raw.githubusercontent.com/kaedinger/unraid-ca-xml-templates/main/fieldolamps.png</Photo>
+    <Video>https://www.youtube.com/watch?v=Q9WB53jlILQ</Video>
+</Maintainer>
