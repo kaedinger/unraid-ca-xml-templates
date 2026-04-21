@@ -26,4 +26,6 @@
   - Stackable pause locks for backup scripts, remotely accessible via ssh
   - Live log viewer in the settings page
   </Overview>
+  <Screenshot>https://raw.githubusercontent.com/kaedinger/unspin/main/images/scr1_settings.png</Screenshot>
+  <Screenshot>https://raw.githubusercontent.com/kaedinger/unspin/main/images/scr2_log.png</Screenshot>
 </Containers>
