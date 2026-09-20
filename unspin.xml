@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Containers>
   <Plugin>True</Plugin>
-  <PluginURL>https://raw.githubusercontent.com/kaedinger/unspin/main/unspin.plg</PluginURL>
+  <PluginURL>https://github.com/kaedinger/unspin/releases/latest/download/unspin.plg</PluginURL>
   <PluginAuthor>kaedinger</PluginAuthor>
   <Beta>False</Beta>
   <Category>Tools:System</Category>   
