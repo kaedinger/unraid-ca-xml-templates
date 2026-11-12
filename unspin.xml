@@ -7,11 +7,11 @@
   <Category>Tools:System</Category>   
   <Name>Unspin</Name>
   <Description>
-    Rudimentary hotfile tiering for Unraid. Watches file accesses via fanotify and promotes hot files to fast storage (cache/NVMe). There's no explicit cold demotion - for now we rely on Unraid's mover. Fully configurable via the Utilities settings page.
+    Rudimentary hotfile tiering for Unraid. Promotes hot files from the array to cache/NVMe, cold ones are left to Unraid's mover. Shows which program, container, VM or SMB client spun up each disk. Never wakes a disk itself.
   </Description>
   <Support>https://forums.unraid.net/topic/198091-plugin-unspin-rudimentary-hot-file-tiering-for-unraid/</Support>
   <Icon>https://raw.githubusercontent.com/kaedinger/unspin/main/images/icon.png</Icon>
-  <ExtraSearchTerms>hotfile tiering</ExtraSearchTerms>
+  <ExtraSearchTerms>hotfile tiering spin up spindown wake disk</ExtraSearchTerms>
   <CA>AddOn</CA>
   <Repo>https://github.com/kaedinger/unspin</Repo>
   <MinVer>7.0.0</MinVer>
@@ -19,11 +19,14 @@
     Unspin runs a lightweight C++ daemon that monitors file accesses via fanotify on your array disks. When a file exceeds configurable access thresholds it gets promoted to your cache/NVMe pool.
   
   Features:
-  - Event-driven promotion via fanotify (no polling or cron)
+  - Disk Wake-ups: shows which program, container, VM or SMB client spun up each disk, with daily counts and the latest wake-ups
+  - Never wakes a disk itself: a file read from RAM while its disk sleeps is promoted later, with the disk awake
+  - Event-driven promotion, no polling or cron
   - Three promotion rules: small-file first-access, large-file streaming burst, periodic open detection
-  - Mover/rsync-aware: pauses automatically during transfers
-  - Hot-tier fill guard, dry-run mode, exclude patterns
-  - Stackable pause locks for backup scripts, remotely accessible via ssh
+  - Safe hand-over: waits until a file is closed everywhere, so it is never lost, doubled or missing from the share
+  - Mover/rsync-aware: pauses automatically during transfers; works with Mover Tuning (Pool Access Times)
+  - Hot-tier fill guard, dry-run mode, exclude patterns, promotion stats
+  - Named, stackable pause locks for backup scripts, optionally timed, usable via ssh
   - Live log viewer in the settings page
   </Overview>
   <Screenshot>https://raw.githubusercontent.com/kaedinger/unspin/main/images/scr1_settings.png</Screenshot>
