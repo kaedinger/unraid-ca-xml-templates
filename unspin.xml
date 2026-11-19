@@ -7,7 +7,7 @@
   <Category>Tools:System</Category>   
   <Name>Unspin</Name>
   <Description>
-    Rudimentary hotfile tiering for Unraid. Promotes hot files from the array to cache/NVMe, cold ones are left to Unraid's mover. Shows which program, container, VM or SMB client spun up each disk. Never wakes a disk itself.
+    Rudimentary hotfile tiering for Unraid. Promotes hot files from the array to cache/NVMe, cold ones are left to Unraid's mover. Shows which program, container, VM or SMB client spun up each disk. Never spins up a data disk itself.
   </Description>
   <Support>https://forums.unraid.net/topic/198091-plugin-unspin-rudimentary-hot-file-tiering-for-unraid/</Support>
   <Icon>https://raw.githubusercontent.com/kaedinger/unspin/main/images/icon.png</Icon>
@@ -19,8 +19,9 @@
     Unspin runs a lightweight C++ daemon that monitors file accesses via fanotify on your array disks. When a file exceeds configurable access thresholds it gets promoted to your cache/NVMe pool.
   
   Features:
-  - Disk Wake-ups: shows which program, container, VM or SMB client spun up each disk, with daily counts and the latest wake-ups
-  - Never wakes a disk itself: a file read from RAM while its disk sleeps is promoted later, with the disk awake
+  - Disk Spin-ups: shows which program, container, VM or SMB client spun up each disk, with daily counts and the latest spin-ups
+  - Never spins up a data disk itself: a file whose disk was spun down is promoted once the disk spins up anyway, optionally waiting for parity too
+  - Promote Now: promote a folder on request, right away or once its disks spin up anyway
   - Event-driven promotion, no polling or cron
   - Three promotion rules: small-file first-access, large-file streaming burst, periodic open detection
   - Safe hand-over: waits until a file is closed everywhere, so it is never lost, doubled or missing from the share
@@ -31,5 +32,9 @@
   </Overview>
   <Screenshot>https://raw.githubusercontent.com/kaedinger/unspin/main/images/scr1_settings.png</Screenshot>
   <Screenshot>https://raw.githubusercontent.com/kaedinger/unspin/main/images/scr2_settings.png</Screenshot>
+  <Screenshot>https://raw.githubusercontent.com/kaedinger/unspin/main/images/scr_cache_statistics.png</Screenshot>
+  <Screenshot>https://raw.githubusercontent.com/kaedinger/unspin/main/images/scr_spinup_statistics.png</Screenshot>
+  <Screenshot>https://raw.githubusercontent.com/kaedinger/unspin/main/images/scr_latest_spinups.png</Screenshot>
+  <Screenshot>https://raw.githubusercontent.com/kaedinger/unspin/main/images/scr_detected_shares.png</Screenshot>
   <Screenshot>https://raw.githubusercontent.com/kaedinger/unspin/main/images/scr3_log.png</Screenshot>
 </Containers>
