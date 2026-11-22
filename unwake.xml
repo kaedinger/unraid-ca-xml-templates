@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Containers>
+  <Plugin>True</Plugin>
+  <PluginURL>https://github.com/kaedinger/unwake/releases/latest/download/unwake.plg</PluginURL>
+  <PluginAuthor>kaedinger</PluginAuthor>
+  <Beta>False</Beta>
+  <Category>Tools:System</Category>
+  <Name>Unwake</Name>
+  <Description>
+    Keeps the directory trees of your user shares in RAM, so folder listings, name lookups and attribute reads don't wake sleeping disks - not even after a backup or a big copy pushed everything else out of memory. Replaces Dynamix Cache Directories.
+  </Description>
+  <Support>https://forums.unraid.net/topic/201382-plugin-unwake-directory-caching-for-unraid-user-shares/</Support>
+  <Icon>https://raw.githubusercontent.com/kaedinger/unwake/main/images/icon.png</Icon>
+  <ExtraSearchTerms>cache directories folder caching spin up spindown wake disk smb browse</ExtraSearchTerms>
+  <CA>AddOn</CA>
+  <Repo>https://github.com/kaedinger/unwake</Repo>
+  <MinVer>7.2.0</MinVer>
+  <Overview>
+    Unwake runs a small FUSE daemon on top of /mnt/user (shfs stays underneath) and answers folder listings, name lookups, attributes and extended attributes from its own tree in RAM. It reads a disk's folders only while that disk spins anyway and follows every change via fanotify, so nothing is re-read on a timer and nothing pushes the tree out of memory.
+
+  Features:
+  - Folders in RAM, for good: listings, lookups (including of names that don't exist), attributes and extended attributes without touching the disks
+  - Never wakes a disk to fill the cache: folders are read while a disk spins anyway, at idle priority
+  - Kept current via fanotify: Mover, Unspin, direct writes to /mnt/diskN, containers, ZFS datasets
+  - File data through the kernel (FUSE passthrough), files on one known disk read from that disk directly
+  - Shares in RAM: every share with a tick box, SSD-pool-only shares go straight to their pool
+  - Verifier: the folders in RAM are checked against the disks while they spin, differences repaired and logged
+  - Spin-up log: what Unwake passed to shfs before each disk spun up
+  - Updates in place, without stopping the array or closing open files
+  </Overview>
+  <Screenshot>https://raw.githubusercontent.com/kaedinger/unwake/main/images/scr1_main.png</Screenshot>
+  <Screenshot>https://raw.githubusercontent.com/kaedinger/unwake/main/images/scr_statistics.png</Screenshot>
+  <Screenshot>https://raw.githubusercontent.com/kaedinger/unwake/main/images/scr_shares.png</Screenshot>
+  <Screenshot>https://raw.githubusercontent.com/kaedinger/unwake/main/images/scr2_log_stable_beta.png</Screenshot>
+</Containers>
